@@ -1,0 +1,18 @@
+<article class="card">
+  
+  <h2 class="card-header flex-row justify-space-between">
+    Edit Comment <span><a href="/dashboard" class="link">Back To Dashboard</a></span>
+  </h2>
+  <form class="edit-comment-form card-body">
+    <div>
+        <label for="comment-text">Comment:</label>
+      <input name="comment-text" type="text" class="form-input" id="comment" value="{{comment.comment_text}}" />
+    </div>
+
+    <button type="submit" class="btn-back">Update Comment</button>
+    <button type="button" id="delete-comment-btn" class="btn-back">Delete Comment</button>
+  </form>
+</article>
+
+<script src="/javascript/edit-comment.js"></script>
+<script src="/javascript/delete-comment.js"></script>

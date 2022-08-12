@@ -1,0 +1,21 @@
+<article class="card">
+  
+  <h2 class="card-header flex-row justify-space-between">
+    Edit Post <span><a href="/dashboard" class="link">Back To Dashboard</a></span>
+  </h2>
+  <form class="edit-post-form card-body">
+    <div>
+        <label for="post-title">Title:</label>
+      <input name="post-title" type="text" class="form-input" value="{{post.title}}" />
+      <label for="post-text">Content:</label>
+      <input name="post-text" type="text" class="form-input" id="content" value="{{post.post_text}}" />
+    </div>
+
+    <button type="submit" class="btn-back">Save post</button>
+    <button type="button" id="delete-post-btn" class="btn-back">Delete post</button>
+  </form>
+</article>
+
+{{>comments post.comments}}
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>

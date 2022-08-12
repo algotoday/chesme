@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chesme</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="hero flex-row justify-space-between">
+      <h1>
+            <a class="app-title" href="/">Chesme</a>
+        </h1>
+      <nav class="nav">
+        {{#if loggedIn}}
+          <a href="/home" class="link">Home</a>
+          <a href="/dashboard" class="link">Dashboard</a>
+          <a href="/" id="logout" class="link">Logout</a>
+        {{else}}
+                  <a href="/home" class="link">Home</a>
+          <a href="/login" class="link">Dashboard</a>
+          <a href="/login" class="link">Login</a>
+        {{/if}}
+      </nav>
+        
+    </header>
+
+    <main>
+      {{{ body }}}
+    </main>
+  </div>
+
+{{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

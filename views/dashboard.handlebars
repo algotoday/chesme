@@ -1,0 +1,53 @@
+<section class="card">
+  <h2 class="card-header">Create New Post</h2>
+
+  <form class="card-body" id="new-post-form">
+    <div>
+      <label for="post-title">Title:</label>
+      <input type="text" id="post-title" name="post-title" class="form-input" />
+    </div>
+    <div>
+      <label for="post-text">Content:</label>
+      <input id="comment" name="post-text" class="form-input" />
+    </div>
+    <button type="submit" class="btn">Create</button>
+  </form>
+</section>
+
+{{#if posts.length}}
+<section class="card">
+    <h2 class="card-header">Your Posts</h2>
+    <ul class="post-list card-body">
+        {{#each posts as |post|}}
+        <li>
+            {{>post-info post}}
+            <a href="/dashboard/edit/{{post.id}}" class="btn-back">Edit Post</a>
+        </li>
+        <br/>
+        {{/each}}
+    </ul>
+</section>
+{{/if}}
+
+{{#if comments.length}}
+<section class="card">
+  <h2 class="card-header">Your Comments</h2>
+  <ul class="post-list card-body">
+    {{#each comments as |comment|}}
+    <li>
+      <div class="card">
+        <h2 class="card-header">Posted on {{format_date comment.createdAt}}</h2>
+        <div class="card-body">
+            {{comment.comment_text}}
+        </div>
+      </div>
+      <a href="/dashboard/edit/comment/{{comment.id}}" class="btn-back">Edit Comment</a>
+      <a href="/post/{{comment.post_id}}" class="btn-back">View post</a>
+    </li>
+    {{/each}}
+  </ul>
+</section>
+{{/if}}
+
+
+<script src="/javascript/add-post.js"></script>
